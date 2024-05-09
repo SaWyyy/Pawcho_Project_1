@@ -24,7 +24,7 @@ Now if you type:
 docker ps
 ```
 You should see something like this:
-![screenshot]
+![screenshot](previews/docker_ps_preview.png)
 
 ## Checking logs
 After succesfully running container you can check logs from server by typing:
