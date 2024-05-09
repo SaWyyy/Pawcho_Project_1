@@ -31,7 +31,7 @@ After succesfully running container you can check logs from server by typing:
 ```sh
 docker logs projekt1
 ```
-Logs should look like this:
+Logs should look like this: \
 ![screenshot](previews/docker_logs_preview.png)
 
 ## Testing application
