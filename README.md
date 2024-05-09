@@ -18,7 +18,7 @@ If the image has been built correctly you can run it by typing:
 ```sh
 docker run -d -p 8000:8000 --name projekt1 projekt1:1.0.0
 ```
-Just make sure if port 8000 isn't already allocated on your machine, anyway you can change it
+Just make sure if port 8000 isn't already allocated on your machine, anyway you can change it \
 Now if you type:
 ```sh
 docker ps
@@ -32,15 +32,15 @@ After succesfully running container you can check logs from server by typing:
 docker logs projekt1
 ```
 Logs should look like this:
-![screenshot]
+![screenshot](preview/docker_logs_preview)
 
 ## Testing application
-When container is running you can open your web browser and type in search bar http://localhost:8000 or [click here](http://localhost:8000)
+When container is running you can open your web browser and type in search bar http://localhost:8000 \
 App sholud look like this:
-![screenshot]
+![screenshot](previews/app_preview)
 
 ## Additional info
-After building image you can check how many layer it has by typing:
+After building image you can check how many layers it has by typing:
 ```sh
 docker history projekt1:1.0.0
 ```
