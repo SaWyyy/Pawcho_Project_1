@@ -32,12 +32,13 @@ After succesfully running container you can check logs from server by typing:
 docker logs projekt1
 ```
 Logs should look like this:
-![screenshot](preview/docker_logs_preview.png)
+![screenshot](previews/docker_logs_preview.png)
 
 ## Testing application
 When container is running you can open your web browser and type in search bar http://localhost:8000 \
-App sholud look like this:
-![screenshot](previews/app_preview.jpg)
+App sholud look like this: \
+![screenshot](previews/app_preview.jpg) \
+Of course with your full IP address
 
 ## Additional info
 After building image you can check how many layers it has by typing:
