@@ -46,6 +46,11 @@ After building image you can check how many layers it has by typing:
 docker history projekt1:1.0.0
 ```
 
+## Vulnerabilities
+The image has been checked for security vulnerabilities using the Docker Scout tool. \
+![screenshot](previews/vulnerabilities.png) \
+As you can see there are no vulnerablilities at all.
+
 # Extension
 
 The task extension involved building the image on two architectures, utilizing cache during the image build, and cloning the repository from GitHub instead of using local files. However, cloning the repository results in an increase in the size of the image itself, as it requires installing Git and SSH client.
@@ -72,8 +77,3 @@ For example:
 docker run -d -p 8000:8000 --name Project1 sawyyy/project1:ssh
 ```
 You can select different tag like "1.0.0" or "cached"
-
-## Vulnerabilities
-The image has been checked for security vulnerabilities using the Docker Scout tool. \
-![screenshot](previews/vulnerabilities.png) \
-As you can see there are no vulnerablilities at all.
