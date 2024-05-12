@@ -7,13 +7,15 @@ ARG VERSION
 # Ustawienie katalogu roboczego
 WORKDIR /usr/app
 
-# Aktualizacja pakietów oraz zainstalowanie npm
-RUN apk --no-cache update && apk add --no-cache nodejs npm && apk add --no-cache git && apk add --no-cache ssh-client
+# Aktualizacja pakietów oraz zainstalowanie npm, git i ssh
+RUN apk --no-cache update && apk add --no-cache nodejs npm && apk add --no-cache git && apk add --no-cache openssh-client
+
 
 RUN mkdir -p -m 0700 ~/.ssh \
     && ssh-keyscan github.com >> ~/.ssh/known_hosts \
     && eval $(ssh-agent)
 
+# Klonowanie repozytorium
 RUN --mount=type=ssh git clone git@github.com:SaWyyy/Pawcho_project_1.git
 
 
@@ -34,7 +36,7 @@ RUN apk --no-cache update && apk add --no-cache nodejs
 COPY --from=builder /usr/app /usr/app
 
 # Ustawienie katalogu roboczego
-WORKDIR /usr/app/src
+WORKDIR /usr/app/Pawcho_project_1/src
 
 # Wyeksponowanie portu 8000
 EXPOSE 8000
