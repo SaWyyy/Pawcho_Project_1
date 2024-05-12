@@ -22,6 +22,9 @@ COPY ./src/server.js ./
 # Etap produkcyjny
 FROM alpine:latest
 
+# Ustawienie labela
+LABEL owner="Kamil Sadowski"
+
 # Ustawnienie zmiennej VERSION
 ARG VERSION
 ENV APP_VERSION=$VERSION
