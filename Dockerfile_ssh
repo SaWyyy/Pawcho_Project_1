@@ -1,0 +1,45 @@
+# Etap budowy
+FROM scratch AS builder
+ADD alpine-minirootfs-3.19.1-x86_64.tar /
+
+ARG VERSION
+
+# Ustawienie katalogu roboczego
+WORKDIR /usr/app
+
+# Aktualizacja pakietów oraz zainstalowanie npm
+RUN apk --no-cache update && apk add --no-cache nodejs npm && apk add --no-cache git && apk add --no-cache ssh-client
+
+RUN mkdir -p -m 0700 ~/.ssh \
+    && ssh-keyscan github.com >> ~/.ssh/known_hosts \
+    && eval $(ssh-agent)
+
+RUN --mount=type=ssh git clone git@github.com:SaWyyy/Pawcho_project_1.git
+
+
+# Etap produkcyjny
+FROM alpine:latest
+
+# Ustawienie labela
+LABEL owner="Kamil Sadowski"
+
+# Ustawnienie zmiennej VERSION
+ARG VERSION
+ENV APP_VERSION=$VERSION
+
+# Aktualizacja pakietów oraz zainstalowanie node js
+RUN apk --no-cache update && apk add --no-cache nodejs
+
+# Kopiowanie zależności z etapu budowania
+COPY --from=builder /usr/app /usr/app
+
+# Ustawienie katalogu roboczego
+WORKDIR /usr/app/src
+
+# Wyeksponowanie portu 8000
+EXPOSE 8000
+
+# Uruchomienie Nginx oraz serwera aplikacji
+CMD node server.js
+
+HEALTHCHECK --interval=5s --timeout=3s CMD wget -O/dev/null http://localhost:8000 || exit 1
