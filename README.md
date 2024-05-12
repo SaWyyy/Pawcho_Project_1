@@ -69,7 +69,7 @@ docker buildx build -t sawyyy/project1:cached --build-arg VERSION=1.0.0 --no-cac
 ```
 ## Building an image using repository cloning from GitHub:
 ```sh
-docker buildx build --ssh default=$SSH_AUTH_SOCK -t sawyyy/project1:ssh --build-arg VERSION=1.0.0 --no-cache --sbom=true --provenance=mode=max --platform linux/amd64,linux/arm64 --push .
+docker buildx build -f Dockerfile_ssh --ssh default=$SSH_AUTH_SOCK -t sawyyy/project1:ssh --build-arg VERSION=1.0.0 --no-cache --sbom=true --provenance=mode=max --platform linux/amd64,linux/arm64 --push .
 ```
 ## Running container from DockerHub
 For example:
