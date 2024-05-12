@@ -1,4 +1,4 @@
-# Project1 - University report
+![image](https://github.com/SaWyyy/Pawcho_project_1/assets/106868857/43d1a302-975f-4432-85bb-454c4a4f2416)# Project1 - University report
 
 ## Building image
 First step to run application is to build an image, when you're in main directory type in terminal:
@@ -45,3 +45,8 @@ After building image you can check how many layers it has by typing:
 ```sh
 docker history projekt1:1.0.0
 ```
+
+## Vulnerabilities
+The image has been checked for security vulnerabilities using the Docker Scout tool.
+![screenshot](previews/vulnerabilities.png)
+As you can see there are no vulnerablilities at all.
